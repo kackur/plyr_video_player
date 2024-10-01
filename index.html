@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +12,77 @@
             flex-direction: column;
             align-items: center;
             margin: 20px;
+            background-color: #f4f4f4; /* Lägg till en bakgrundsfärg */
         }
         #video-container {
             margin-top: 20px;
-            display: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            max-width: 640px;
+            max-width: 640px; /* Maximera bredden */
         }
         #plyr-container {
             width: 100%;
+            max-width: 100%; /* Maximera bredden */
+            aspect-ratio: 16 / 9; /* Hålla ett 16:9-förhållande */
+        }
+        input[type="text"] {
+            width: 80%; /* Justera bredden på textinmatningen */
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-   
 
-    <div class="plyr__video-embed" id="player">
-  <iframe
-    src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
-    allowfullscreen
-    allowtransparency
-    allow="autoplay"
-  ></iframe>
-</div>
+    <div id="video-container">
+        <div class="plyr__video-embed" id="plyr-container">
+            <iframe
+                id="player"
+                src="https://www.youtube.com/embed/bTqVqk7FSmY?enablejsapi=1&origin=https://yourwebsite.com"
+                allowfullscreen
+                allowtransparency
+                allow="autoplay"
+            ></iframe>
+        </div>
+        <input type="text" id="videoUrl" placeholder="Klistra in YouTube-länk här">
+        <button id="playButton">Spela</button>
+    </div>
+
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script>
+        const player = new Plyr('#player');
+
+        // Funktion för att extrahera video-ID från YouTube-länk
+        function extractVideoId(url) {
+            const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^&\n]{11})/;
+            const matches = url.match(regex);
+            return matches ? matches[1] : null;
+        }
+
+        // Funktion för att spela upp video
+        document.getElementById('playButton').addEventListener('click', function() {
+            const videoUrl = document.getElementById('videoUrl').value;
+            const videoId = extractVideoId(videoUrl);
+            if (videoId) {
+                const newSrc = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=https://yourwebsite.com`;
+                player.source = {
+                    type: 'video',
+                    sources: [{
+                        src: videoId,
+                        provider: 'youtube',
+                    }],
+                };
+                player.play();
+            } else {
+                alert('Ogiltig YouTube-länk.');
+            }
+        });
+    </script>
 </body>
 </html>
