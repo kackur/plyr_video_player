@@ -12,20 +12,20 @@
             flex-direction: column;
             align-items: center;
             margin: 20px;
-            background-color: #f4f4f4; /* Lägg till en bakgrundsfärg */
+            background-color: #f4f4f4; /* Bakgrundsfärg */
         }
         #video-container {
             margin-top: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 50%;
-            max-width: 50px; /* Maximera bredden */
+            width: 100%;
+            max-width: 640px; /* Maximera bredden */
         }
         #plyr-container {
-            width: 50%;
-            max-width: 50%; /* Maximera bredden */
-            aspect-ratio: 16 / 9; /* Hålla ett 16:9-förhållande */
+            width: 100%; /* Ta upp hela bredden av containern */
+            height: 360px; /* Justera höjden på videospelaren */
+            max-width: 100%;
         }
         input[type="text"] {
             width: 80%; /* Justera bredden på textinmatningen */
