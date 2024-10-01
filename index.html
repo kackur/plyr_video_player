@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plyr Videospelare</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #video-container {
+            margin-top: 20px;
+            display: none;
+            width: 100%;
+            max-width: 640px;
+        }
+        #plyr-container {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Videospelare med Plyr</h1>
+    <input type="text" id="video-url" placeholder="Klistra in Vimeo eller YouTube-länk" />
+    <button id="play-button">Använda</button>
+
+    <div id="video-container">
+        <h2 id="video-title"></h2>
+        <div id="plyr-container"></div>
+    </div>
+
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script>
+        document.getElementById('play-button').addEventListener('click', function() {
+            const url = document.getElementById('video-url').value;
+            const videoId = getVideoId(url);
+            const platform = getPlatform(url);
+            let source;
+
+            if (platform === 'youtube') {
+                source = {
+                    src: videoId,
+                    provider: 'youtube'
+                };
+                document.getElementById('video-title').innerText = `YouTube Video: ${videoId}`;
+            } else if (platform === 'vimeo') {
+                source = {
+                    src: videoId,
+                    provider: 'vimeo'
+                };
+                document.getElementById('video-title').innerText = `Vimeo Video: ${videoId}`;
+            } else {
+                alert('Ogiltig länk. Vänligen ange en giltig YouTube- eller Vimeo-länk.');
+                return;
+            }
+
+            const player = new Plyr('#plyr-container', {
+                sources: [source],
+            });
+
+            document.getElementById('video-container').style.display = 'block';
+            player.play();
+        });
+
+        function getVideoId(url) {
+            const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+            const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(\d+)/;
+
+            const youtubeMatch = url.match(youtubeRegex);
+            const vimeoMatch = url.match(vimeoRegex);
+
+            if (youtubeMatch) return youtubeMatch[1];
+            if (vimeoMatch) return vimeoMatch[1];
+            return null;
+        }
+
+        function getPlatform(url) {
+            if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
+            if (url.includes('vimeo.com')) return 'vimeo';
+            return null;
+        }
+    </script>
+</body>
+</html>
