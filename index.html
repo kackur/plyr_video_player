@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avskalad Videospelare</title>
   
-  <!-- Länk till din egen CSS-fil -->
-  <link rel="stylesheet" href="https://kackur.github.io/plyr-video-player-/style.css" />
+  <!-- Länk till Plyr CSS (du kan fortfarande lägga till din egen CSS om du vill) -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+  
+  <!-- Länk till din egen style.css om du vill anpassa ytterligare -->
+  <!-- <link rel="stylesheet" href="https://kackur.github.io/plyr-video-player-/style.css" /> -->
+  
+  <style>
+    /* Om du vill göra fler anpassningar kan du lägga till dem här */
+  </style>
 </head>
 <body>
   <!-- Video Embed -->
@@ -21,11 +28,6 @@
   <!-- Plyr JS -->
   <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
   <script>
-    // Initiera spelaren med enbart play/pause
+    // Initiera spelaren med enbart play/pause-knappar, inga andra menyer
     const player = new Plyr('#player', {
-      controls: ['play'],
-      fullscreen: { enabled: false }
-    });
-  </script>
-</body>
-</html>
+      controls: ['play', 'pause'], // Bara play/p​⬤
