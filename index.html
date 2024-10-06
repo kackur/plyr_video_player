@@ -9,7 +9,15 @@
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
   
   <style>
-    /* Om du vill göra fler anpassningar kan du lägga till dem här */
+    /* Anpassa bakgrundsfärgen för Plyr-kontroller */
+    .plyr__controls {
+      background-color: #50D571; /* Grön bakgrund */
+    }
+    
+    /* Gör ikonerna vita */
+    .plyr__control {
+      color: white; /* Vit färg för ikonerna */
+    }
   </style>
 </head>
 <body>
@@ -19,27 +27,19 @@
       src="https://www.youtube.com/embed/bTqVqk7FSmY?controls=0&rel=0&showinfo=0"
       allowfullscreen
       allow="autoplay"
+      style="width: 100%; height: 100%; border: none;"
     ></iframe>
   </div>
 
   <!-- Plyr JS -->
   <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
   <script>
-    // Initiera spelaren med enbart play/pause-knappar, inga andra menyer
+    // Initiera spelaren med enbart play/pause-knappar
     const player = new Plyr('#player', {
       controls: ['play', 'pause'], // Bara play/pause-knappar
       disableContextMenu: true, // Inaktivera högerklicksmenyer
       settings: [], // Inga inställningsmenyer
-      fullscreen: { enabled: false }, // Inaktivera fullskärm
-      youtube: {
-        rel: 0, // Inaktivera relaterade videor vid slutet
-        showinfo: 0, // Döljer videoinformation
-      },
-      vimeo: {
-        title: false, // Dölj titel i Vimeo
-        byline: false, // Dölj byline i Vimeo
-        portrait: false // Dölj avatar i Vimeo
-      }
+      fullscreen: { enabled: false } // Inaktivera fullskärm
     });
   </script>
 </body>
