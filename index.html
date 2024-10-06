@@ -18,15 +18,17 @@
       height: 100vh; /* Full höjd */
       margin: 0;
       background-color: #f5f5f5; /* Ljus bakgrund */
+      padding: 20px; /* Marginaler till kanterna */
     }
 
     .card {
       background-color: #e0e0e0; /* Ljusgrå bakgrund för kortet */
       border-radius: 20px; /* Rundade hörn */
       padding: 20px; /* Inre marginaler */
-      width: 90%; /* Bredde på kortet */
+      width: 100%; /* Full bredd */
       max-width: 800px; /* Maximal bredd */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+      box-sizing: border-box; /* Inkludera padding och border i total bredd/höjd */
     }
 
     h1 {
