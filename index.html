@@ -7,7 +7,7 @@
   
   <!-- Länka till Plyr CSS -->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet"> <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Inter Font -->
 
   <style>
     body {
@@ -31,13 +31,26 @@
 
     h1 {
       margin: 0; /* Ta bort standard marginaler */
-      font-size: 24px; /* Storlek på titeln */
-      text-align: center; /* Centrera texten */
+      font-size: 26px; /* Ökad storlek för titeln */
+      font-weight: 600; /* Ökad tyngd för titeln */
+      text-align: left; /* Vänsterställa titeln */
+      display: inline-block; /* Gör titeln inline-block för chips placering */
+    }
+
+    .time-chip {
+      background-color: black; /* Svart bakgrund för chip */
+      color: white; /* Vit text */
+      border-radius: 15px; /* Rundade hörn */
+      padding: 5px 10px; /* Inre marginaler */
+      font-size: 14px; /* Mindre storlek än brödtexten */
+      margin-left: 20px; /* Marginal till vänster */
+      vertical-align: middle; /* Justera vertikalt med titeln */
+      display: inline-block; /* Gör chip inline-block för att vara på samma rad */
     }
 
     p {
       font-size: 16px; /* Storlek på brödtexten */
-      text-align: center; /* Centrera brödtexten */
+      text-align: left; /* Vänsterställa brödtexten */
       margin: 10px 0; /* Marginaler runt brödtexten */
     }
 
@@ -54,7 +67,7 @@
 </head>
 <body>
   <div class="card">
-    <h1>Passningsövning</h1>
+    <h1>Passningsövning<span class="time-chip">20 min</span></h1>
     <p>Detta är en testövning för fotbollslag.</p>
 
     <!-- Video Embed -->
