@@ -30,4 +30,20 @@
   <script>
     // Initiera spelaren med enbart play/pause-knappar, inga andra menyer
     const player = new Plyr('#player', {
-      controls: ['play', 'pause'], // Bara play/p​⬤
+      controls: ['play', 'pause'], // Bara play/pause-knappar
+      disableContextMenu: true, // Inaktivera högerklicksmenyer
+      settings: [], // Inga inställningsmenyer
+      fullscreen: { enabled: false }, // Inaktivera fullskärm
+      youtube: {
+        rel: 0, // Inaktivera relaterade videor vid slutet
+        showinfo: 0, // Döljer videoinformation
+      },
+      vimeo: {
+        title: false, // Dölj titel i Vimeo
+        byline: false, // Dölj byline i Vimeo
+        portrait: false // Dölj avatar i Vimeo
+      }
+    });
+  </script>
+</body>
+</html>
