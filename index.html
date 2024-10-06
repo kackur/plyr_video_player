@@ -1,4 +1,29 @@
-<div class="container">
-	<div id="player" data-plyr-provider="youtube" data-plyr-embed-id="bTqVqk7FSmY"></div>
-</div>
-<!-- Plyr resources and browser polyfills are specified in the pen settings -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Videoplayer</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+</head>
+<body>
+  <div class="plyr__video-embed" id="player">
+    <iframe
+      src="https://www.youtube.com/embed/bTqVqk7FSmY"
+      allowfullscreen
+      allow="autoplay"
+    ></iframe>
+  </div>
+
+  <div class="plyr__video-embed" id="player2">
+    <iframe
+      src="https://player.vimeo.com/video/76979871"
+      allowfullscreen
+      allow="autoplay"
+    ></iframe>
+  </div>
+
+  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
