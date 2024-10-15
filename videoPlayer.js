@@ -1,5 +1,11 @@
 const playerContainer = document.getElementById('player');
-const player = new Plyr(`${playerContainer.id} video`);
+
+// Skapa Plyr-spelaren
+const player = new Plyr(`${playerContainer.id} video`, {
+    controls: [
+        'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'
+    ]
+});
 
 // Funktion för att spela upp video baserat på länk
 function loadVideo(link) {
@@ -27,6 +33,7 @@ function loadVideo(link) {
             }],
         };
         console.log('Video källan har uppdaterats:', player.source); // Logga den nya källan
+        player.play(); // Spela upp videon automatiskt
     } else {
         alert('Ogiltig video länk');
     }
@@ -38,5 +45,6 @@ const videoLinkInput = document.getElementById('videoLink');
 // Ladda video när knappen klickas
 loadButton.addEventListener('click', () => {
     const link = videoLinkInput.value.trim();
+    console.log('Klickad länk:', link); // Logga när knappen klickas
     loadVideo(link);
 });
