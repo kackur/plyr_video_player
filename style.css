@@ -55,12 +55,23 @@ p {
   color: white; /* Vit färg för ikonerna */
 }
 
-/* CSS (style.css) */
-.plyr__video-embed {
+/* Video Container */
+.video-container {
   border-radius: 15px; /* Runda hörnen */
-  overflow: hidden; /* Klipp iframens hörn */
+  overflow: hidden; /* Se till att hörnen syns */
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
+/* plyr__video-embed behåller dessa regler */
+.plyr__video-embed {
+  width: 100%;
+  height: 100%;
 }
 
 .plyr__video-embed iframe {
-  border-radius: 15px; /* Runda hörnen på iframen */
+  width: 100%;
+  height: 100%;
+  border: none; /* Se till att det inte finns några kanter */
 }
