@@ -54,3 +54,13 @@ p {
 .plyr__control {
   color: white; /* Vit färg för ikonerna */
 }
+
+/* CSS (style.css) */
+.plyr__video-embed {
+  border-radius: 15px; /* Runda hörnen */
+  overflow: hidden; /* Klipp iframens hörn */
+}
+
+.plyr__video-embed iframe {
+  border-radius: 15px; /* Runda hörnen på iframen */
+}
