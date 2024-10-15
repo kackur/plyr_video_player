@@ -35,6 +35,11 @@
         button:hover {
             background-color: #0056b3;
         }
+        #player {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
@@ -43,18 +48,10 @@
     <input type="text" id="videoLink" placeholder="Klistra in video länk här" />
     <button id="loadButton">Ladda Video</button>
 
-    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
-    <script src="videoPlayer.js"></script>
-    <script>
-        const loadButton = document.getElementById('loadButton');
-        const videoLinkInput = document.getElementById('videoLink');
+    <div id="player"></div> <!-- Spelare kommer att skapas här -->
 
-        // Ladda video när knappen klickas
-        loadButton.addEventListener('click', () => {
-            const link = videoLinkInput.value.trim();
-            loadVideo(link);
-        });
-    </script>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script src="videoPlayer.js"></script> <!-- Din externa JavaScript-fil -->
 
 </body>
 </html>
