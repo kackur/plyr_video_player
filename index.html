@@ -1,95 +1,66 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Passningsövning</title>
-  
-  <!-- Länka till Plyr CSS -->
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; 
-      margin: 0;
-      background-color: #f5f5f5; 
-      padding: 20px; 
-    }
-
-    .card {
-      background-color: #e0e0e0; 
-      border-radius: 20px; 
-      padding: 20px; 
-      width: 100%; 
-      max-width: 800px; 
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-      box-sizing: border-box; 
-    }
-
-    h1 {
-      margin: 0; 
-      font-size: 18px;
-      font-weight: 600; 
-      text-align: left; 
-      display: inline-block; 
-    }
-
-    .chip {
-      background-color: black; 
-      color: white; 
-      border-radius: 15px; 
-      padding: 5px 10px; 
-      font-size: 10px; 
-      margin-left: 20px; 
-      vertical-align: middle; 
-      display: inline-block; 
-    }
-
-    p {
-      font-size: 12px; 
-      text-align: left; 
-      margin: 10px 0; 
-    }
-
-    .plyr__controls {
-      background-color: #50D571; 
-    }
-    
-    .plyr__control {
-      color: white; 
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+    <title>Plyr Videospelare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #player {
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Passningsövning<span class="chip">20 min</span></h1>
-    <p>Detta är en testövning för fotbollslag.</p>
 
-    <!-- Video Embed -->
-    <div class="plyr__video-embed" id="player">
-      <iframe
-        src="https://www.youtube.com/embed/wvFyTDkOKzc?controls=0&rel=0&showinfo=0"
-        allowfullscreen
-        allow="autoplay"
-        style="width: 100%; height: 100%; border: none;"
-      ></iframe>
+    <div id="player">
+        <video controls crossorigin playsinline>
+            <source src="" type="video/mp4" />
+            Din webbläsare stödjer inte video taggen.
+        </video>
     </div>
-  </div>
 
-  <!-- Plyr JS -->
-  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
-  <script>
-    const player = new Plyr('#player', {
-      controls: ['play', 'progress', 'fullscreen'], 
-      disableContextMenu: true,
-      settings: [], 
-      fullscreen: { enabled: true } 
-    });
-  </script>
-</body>
-</html>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script>
+        const player = new Plyr('#player video');
+
+        // Funktion för att spela upp video baserat på länk
+        function loadVideo(link) {
+            let videoSource = '';
+
+            if (link.includes('youtube.com') || link.includes('youtu.be')) {
+                // Bearbeta YouTube-länk
+                const videoId = link.split('v=')[1]?.split('&')[0] || link.split('/').pop();
+                videoSource = `https://www.youtube.com/watch?v=${videoId}`;
+            } else if (link.includes('vimeo.com')) {
+                // Bearbeta Vimeo-länk
+                const videoId = link.split('/').pop();
+                videoSource = `https://vimeo.com/${videoId}`;
+            }
+
+            // Uppdatera spelaren med den nya källan
+            if (videoSource) {
+                player.source = {
+                    type: 'video',
+                    sources: [{
+                        src: videoSource,
+                        provider: link.includes('youtube.com') || link.includes('youtu.be') ? 'youtube' : 'vimeo',
+                    }],
+                };
+            } else {
+                alert('Ogiltig video länk');
+            }
+        }
+
+        // Exempel på hur man laddar en video
+        load​⬤
