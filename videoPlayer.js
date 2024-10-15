@@ -34,7 +34,7 @@ function loadVideo(link) {
     }
 
     // Uppdatera spelaren med den nya källan
-    if (videoId) {
+    if (videoId && provider) {
         player.source = {
             type: 'video',
             sources: [{
