@@ -48,7 +48,11 @@
     <input type="text" id="videoLink" placeholder="Klistra in video länk här" />
     <button id="loadButton">Ladda Video</button>
 
-    <div id="player"></div> <!-- Spelare kommer att skapas här -->
+    <div id="player">
+        <video controls>
+            <source src="" type="video/mp4" />
+        </video>
+    </div> <!-- Spelare kommer att skapas här -->
 
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
     <script src="videoPlayer.js"></script> <!-- Din externa JavaScript-fil -->
