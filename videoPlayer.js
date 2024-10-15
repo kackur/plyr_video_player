@@ -35,7 +35,7 @@ function loadVideo(link) {
                 provider: provider,
             }],
         };
-        
+
         console.log('Video källan har uppdaterats:', player.source); // Logga den nya källan
         player.play().catch(error => {
             console.error('Det gick inte att spela upp videon:', error);
@@ -44,13 +44,3 @@ function loadVideo(link) {
         alert('Ogiltig video länk');
     }
 }
-
-const loadButton = document.getElementById('loadButton');
-const videoLinkInput = document.getElementById('videoLink');
-
-// Ladda video när knappen klickas
-loadButton.addEventListener('click', () => {
-    const link = videoLinkInput.value.trim();
-    console.log('Klickad länk:', link); // Logga när knappen klickas
-    loadVideo(link);
-});
