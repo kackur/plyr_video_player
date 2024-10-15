@@ -4,68 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passningsövning</title>
-  
+
   <!-- Länka till Plyr CSS -->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+  
+  <!-- Länka till din externa CSS-fil -->
+  <link rel="stylesheet" href="style.css" />
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Inter Font -->
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif; /* Sätt typsnitt */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Full höjd */
-      margin: 0;
-      background-color: #f5f5f5; /* Ljus bakgrund */
-      padding: 20px; /* Marginaler till kanterna */
-    }
-
-    .card {
-      background-color: #e0e0e0; /* Ljusgrå bakgrund för kortet */
-      border-radius: 20px; /* Rundade hörn */
-      padding: 20px; /* Inre marginaler */
-      width: 100%; /* Full bredd */
-      max-width: 800px; /* Maximal bredd */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lätt skugga */
-      box-sizing: border-box; /* Inkludera padding och border i total bredd/höjd */
-    }
-
-    h1 {
-      margin: 0; /* Ta bort standard marginaler */
-      font-size: 26px; /* Ökad storlek för titeln */
-      font-weight: 600; /* Ökad tyngd för titeln */
-      text-align: left; /* Vänsterställa titeln */
-      display: inline-block; /* Gör titeln inline-block för chips placering */
-    }
-
-    .time-chip {
-      background-color: black; /* Svart bakgrund för chip */
-      color: white; /* Vit text */
-      border-radius: 15px; /* Rundade hörn */
-      padding: 5px 10px; /* Inre marginaler */
-      font-size: 14px; /* Mindre storlek än brödtexten */
-      margin-left: 20px; /* Marginal till vänster */
-      vertical-align: middle; /* Justera vertikalt med titeln */
-      display: inline-block; /* Gör chip inline-block för att vara på samma rad */
-    }
-
-    p {
-      font-size: 16px; /* Storlek på brödtexten */
-      text-align: left; /* Vänsterställa brödtexten */
-      margin: 10px 0; /* Marginaler runt brödtexten */
-    }
-
-    /* Anpassa bakgrundsfärgen för Plyr-kontroller */
-    .plyr__controls {
-      background-color: #50D571; /* Grön bakgrund */
-    }
-    
-    /* Gör ikonerna vita */
-    .plyr__control {
-      color: white; /* Vit färg för ikonerna */
-    }
-  </style>
 </head>
 <body>
   <div class="card">
