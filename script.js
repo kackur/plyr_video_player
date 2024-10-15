@@ -1,5 +1,7 @@
-// Initiera Plyr och anpassa kontrollerna
+// Initiera spelaren med play/pause och timeline
 const player = new Plyr('#player', {
-  controls: ['play'], // Endast Play/Paus-knappen visas
-  fullscreen: { enabled: false } // Stänger av fullscreen-knappen
+  controls: ['play', 'progress', 'fullscreen'], // Lägg till progress och fullscreen
+  disableContextMenu: true, // Inaktivera högerklicksmenyer
+  settings: [], // Inga inställningsmenyer
+  fullscreen: { enabled: true } // Aktivera fullskärm
 });
