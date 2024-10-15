@@ -68,10 +68,12 @@ p {
 .plyr__video-embed {
   width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 
 .plyr__video-embed iframe {
   width: 100%;
   height: 100%;
   border: none; /* Se till att det inte finns några kanter */
+  border-radius: 15px;
 }
