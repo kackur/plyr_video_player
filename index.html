@@ -26,19 +26,14 @@
 
     <h1>Plyr Videospelare</h1>
     <div id="player">
-        <video controls>
+        <video controls crossorigin>
             <source src="" type="video/mp4" />
-            Din webbläsare stöder inte videouppspelning.
+            Din webbläsare stöder inte video taggen.
         </video>
     </div>
 
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
     <script src="videoPlayer.js"></script>
-    <script>
-        // Hårdkodad video länk
-        const videoLink = 'https://www.youtube.com/watch?v=CCW9Rvypvv4';
-        loadVideo(videoLink);
-    </script>
 
 </body>
 </html>
