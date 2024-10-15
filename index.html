@@ -16,27 +16,7 @@
             height: 100vh;
             margin: 0;
         }
-        input {
-            width: 80%;
-            max-width: 600px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
         #player {
-            margin-top: 20px;
             width: 80%;
             max-width: 600px;
         }
@@ -45,17 +25,20 @@
 <body>
 
     <h1>Plyr Videospelare</h1>
-    <input type="text" id="videoLink" placeholder="Klistra in video länk här" />
-    <button id="loadButton">Ladda Video</button>
-
     <div id="player">
         <video controls>
             <source src="" type="video/mp4" />
+            Din webbläsare stöder inte videouppspelning.
         </video>
-    </div> <!-- Spelare kommer att skapas här -->
+    </div>
 
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
-    <script src="videoPlayer.js"></script> <!-- Din externa JavaScript-fil -->
+    <script src="videoPlayer.js"></script>
+    <script>
+        // Hårdkodad video länk
+        const videoLink = 'https://www.youtube.com/watch?v=CCW9Rvypvv4'; // Byt ut mot din länk
+        loadVideo(videoLink);
+    </script>
 
 </body>
 </html>
