@@ -7,6 +7,9 @@ const player = new Plyr(`${playerContainer.id} video`, {
     ]
 });
 
+// Hårdkodad video länk
+const videoLink = 'https://www.youtube.com/watch?v=CCW9Rvypvv4'; // Byt ut mot din länk
+
 // Funktion för att spela upp video baserat på länk
 function loadVideo(link) {
     console.log('Laddar video:', link); // Logga länken
@@ -47,6 +50,5 @@ function loadVideo(link) {
     }
 }
 
-// Hårdkodad video länk
-const videoLink = 'https://www.youtube.com/watch?v=CCW9Rvypvv4'; // Byt ut mot din länk
+// Ladda videon när sidan laddas
 loadVideo(videoLink);
