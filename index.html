@@ -10,57 +10,51 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
-        #player {
+        input {
             width: 80%;
             max-width: 600px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <div id="player">
-        <video controls crossorigin playsinline>
-            <source src="" type="video/mp4" />
-            Din webbläsare stödjer inte video taggen.
-        </video>
-    </div>
+    <h1>Plyr Videospelare</h1>
+    <input type="text" id="videoLink" placeholder="Klistra in video länk här" />
+    <button id="loadButton">Ladda Video</button>
 
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script src="videoPlayer.js"></script>
     <script>
-        const player = new Plyr('#player video');
+        const loadButton = document.getElementById('loadButton');
+        const videoLinkInput = document.getElementById('videoLink');
 
-        // Funktion för att spela upp video baserat på länk
-        function loadVideo(link) {
-            let videoSource = '';
+        // Ladda video när knappen klickas
+        loadButton.addEventListener('click', () => {
+            const link = videoLinkInput.value.trim();
+            loadVideo(link);
+        });
+    </script>
 
-            if (link.includes('youtube.com') || link.includes('youtu.be')) {
-                // Bearbeta YouTube-länk
-                const videoId = link.split('v=')[1]?.split('&')[0] || link.split('/').pop();
-                videoSource = `https://www.youtube.com/watch?v=${videoId}`;
-            } else if (link.includes('vimeo.com')) {
-                // Bearbeta Vimeo-länk
-                const videoId = link.split('/').pop();
-                videoSource = `https://vimeo.com/${videoId}`;
-            }
-
-            // Uppdatera spelaren med den nya källan
-            if (videoSource) {
-                player.source = {
-                    type: 'video',
-                    sources: [{
-                        src: videoSource,
-                        provider: link.includes('youtube.com') || link.includes('youtu.be') ? 'youtube' : 'vimeo',
-                    }],
-                };
-            } else {
-                alert('Ogiltig video länk');
-            }
-        }
-
-        // Exempel på hur man laddar en video
-        load​⬤
+</body>
+</html>
