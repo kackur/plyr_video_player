@@ -11,27 +11,29 @@ const player = new Plyr(`${playerContainer.id} video`, {
 function loadVideo(link) {
     console.log('Laddar video:', link); // Logga länken
 
-    let videoSource = '';
-    let provider = '';
+    let videoId;
+    let provider;
 
     if (link.includes('youtube.com') || link.includes('youtu.be')) {
         // Bearbeta YouTube-länk
-        const videoId = link.split('v=')[1]?.split('&')[0] || link.split('/').pop();
-        videoSource = `https://www.youtube.com/watch?v=${videoId}`;
+        if (link.includes('youtube.com/watch?v=')) {
+            videoId = link.split('v=')[1].split('&')[0];
+        } else if (link.includes('youtu.be/')) {
+            videoId = link.split('youtu.be/')[1];
+        }
         provider = 'youtube';
     } else if (link.includes('vimeo.com')) {
         // Bearbeta Vimeo-länk
-        const videoId = link.split('/').pop();
-        videoSource = `https://vimeo.com/${videoId}`;
+        videoId = link.split('/').pop();
         provider = 'vimeo';
     }
 
     // Uppdatera spelaren med den nya källan
-    if (videoSource) {
+    if (videoId) {
         player.source = {
             type: 'video',
             sources: [{
-                src: videoSource,
+                src: provider === 'youtube' ? videoId : videoId,
                 provider: provider,
             }],
         };
@@ -44,3 +46,7 @@ function loadVideo(link) {
         alert('Ogiltig video länk');
     }
 }
+
+// Hårdkodad video länk
+const videoLink = 'https://www.youtube.com/watch?v=CCW9Rvypvv4'; // Byt ut mot din länk
+loadVideo(videoLink);
