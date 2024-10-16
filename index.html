@@ -23,9 +23,9 @@
       <!-- Video Embed för YouTube -->
       <div class="plyr__video-embed" id="youtube-player">
         <iframe
-          src="https://www.youtube.com/embed/wvFyTDkOKzc?enablejsapi=1&controls=0&rel=0&showinfo=0"
-          allowfullscreen
+          src="https://www.youtube.com/embed/wvFyTDkOKzc?controls=0&rel=0&showinfo=0&fs=0"
           allow="autoplay"
+          allowfullscreen
           style="width: 100%; height: 100%; border: none;"
         ></iframe>
       </div>
@@ -39,4 +39,22 @@
       <!-- Video Embed för Vimeo -->
       <div class="plyr__video-embed" id="vimeo-player">
         <iframe
-          src="https://player.vimeo.com/video/791956517?h=d63c391839&title=0​⬤
+          src="https://player.vimeo.com/video/791956517?h=d63c391839&title=0&byline=0&portrait=0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          style="width: 100%; height: 100%; border: none;"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Länka till Plyr JavaScript -->
+  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+
+  <!-- Länka till den uppdaterade youtube.js -->
+  <script src="youtube.js"></script>
+
+  <!-- Länka till en separat vimeo.js för Vimeo-spelaren -->
+  <script src="vimeo.js"></script>
+</body>
+</html>
