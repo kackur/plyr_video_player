@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Passningsövning</title>
+  <title>Passningsövning A</title>
 
+  <!-- Länka till Plyr CSS -->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+  
+  <!-- Länka till din externa CSS-fil -->
   <link rel="stylesheet" href="style.css" />
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Inter Font -->
 </head>
 <body>
@@ -14,21 +18,19 @@
     <h1>Passningsövning<span class="time-chip">20 min</span></h1>
     <p>Detta är en testövning för fotbollslag.</p>
 
-    <!-- Video Container -->
-    <div class="video-container">
-      <div class="plyr__video-embed" id="player">
-        <iframe
-          src="https://www.youtube.com/embed/wvFyTDkOKzc?controls=0&rel=0&showinfo=0"
-          allowfullscreen
-          allow="autoplay"
-          style="width: 100%; height: 100%; border: none;"
-        ></iframe>
-      </div>
+    <!-- Video Embed -->
+    <div class="plyr__video-embed" id="player">
+      <iframe
+        src="https://www.youtube.com/embed/wvFyTDkOKzc?enablejsapi=1&controls=0&rel=0&showinfo=0"
+        allowfullscreen
+        allow="autoplay"
+        style="width: 100%; height: 100%; border: none;"
+      ></iframe>
     </div>
   </div>
 
   <!-- Plyr JS -->
   <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Länka till den externa script-filen -->
 </body>
 </html>
