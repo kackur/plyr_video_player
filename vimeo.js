@@ -1,4 +1,8 @@
-// Initiera Plyr-spelaren för Vimeo
+// Initiera Vimeo-spelaren med Plyr
 const vimeoPlayer = new Plyr('#vimeo-player', {
-  controls: ['play', 'progress', 'current-time', 'mute', 'fullscreen'],
+  controls: ['play', 'progress', 'current-time', 'mute', 'fullscreen'], // Plyrs kontroller
+  disableContextMenu: true, // Inaktivera högerklicksmenyer
+  fullscreen: {
+    enabled: true, // Tillåt fullskärm
+  },
 });
