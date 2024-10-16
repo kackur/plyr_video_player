@@ -14,23 +14,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Inter Font -->
 </head>
 <body>
-  <div class="card">
-    <h1>Passningsövning<span class="time-chip">20 min</span></h1>
-    <p>Detta är en testövning för fotbollslag.</p>
+  <div class="container">
+    <!-- Första kortet med YouTube -->
+    <div class="card">
+      <h1>Passningsövning YouTube<span class="time-chip">20 min</span></h1>
+      <p>Detta är en testövning för fotbollslag med en YouTube-video.</p>
 
-    <!-- Video Embed -->
-    <div class="plyr__video-embed" id="player">
-      <iframe
-        src="https://www.youtube.com/embed/wvFyTDkOKzc?controls=1&rel=0&showinfo=0" <!-- Vi sätter controls till 1 för att använda YouTube-kontroller -->
-        allowfullscreen
-        allow="autoplay"
-        style="width: 100%; height: 100%; border: none;"
-      ></iframe>
+      <!-- Video Embed för YouTube -->
+      <div class="plyr__video-embed" id="youtube-player">
+        <iframe
+          src="https://www.youtube.com/embed/wvFyTDkOKzc?enablejsapi=1&controls=0&rel=0&showinfo=0"
+          allowfullscreen
+          allow="autoplay"
+          style="width: 100%; height: 100%; border: none;"
+        ></iframe>
+      </div>
     </div>
-  </div>
 
-  <!-- Plyr JS -->
-  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
-  <script src="script.js"></script> <!-- Länka till den externa script-filen -->
-</body>
-</html>
+    <!-- Andra kortet med Vimeo -->
+    <div class="card" style="margin-top: 16px;">
+      <h1>Passningsövning Vimeo<span class="time-chip">25 min</span></h1>
+      <p>Detta är en testövning för fotbollslag med en Vimeo-video.</p>
+
+      <!-- Video Embed för Vimeo -->
+      <div class="plyr__video-embed" id="vimeo-player">
+        <iframe
+          src="https://player.vimeo.com/video/791956517?h=d63c391839&title=0​⬤
