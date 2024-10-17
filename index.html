@@ -7,11 +7,9 @@
 
   <!-- Länka till Plyr CSS -->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
-  
-  <!-- Länka till din externa CSS-fil -->
   <link rel="stylesheet" href="style.css" />
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -23,11 +21,7 @@
       <!-- Video Embed för YouTube -->
       <div class="plyr__video-embed" id="youtube-player">
         <iframe
-          id="youtube-iframe"
-          src="https://www.youtube.com/embed/wvFyTDkOKzc?controls=0&rel=0&showinfo=0&loop=1&playlist=wvFyTDkOKzc&autoplay=1&mute=1"
-          allow="autoplay; picture-in-picture"
-          allowfullscreen
-          style="width: 100%; height: 100%; border: none;"
+          src="https://www.youtube.com/embed/wvFyTDkOKzc?playlist=wvFyTDkOKzc&mute=1"
         ></iframe>
       </div>
     </div>
@@ -40,21 +34,16 @@
       <!-- Video Embed för Vimeo -->
       <div class="plyr__video-embed" id="vimeo-player">
         <iframe
-          src="https://player.vimeo.com/video/791956517?h=d63c391839&title=0&byline=0&portrait=0&loop=1"
-          allow="autoplay; fullscreen; picture-in-picture"
-          style="width: 100%; height: 100%; border: none;"
+          src="https://player.vimeo.com/video/791956517?h=d63c"
         ></iframe>
       </div>
     </div>
   </div>
 
-  <!-- Länka till Plyr JavaScript -->
-  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
-
-  <!-- Länka till den uppdaterade youtube.js -->
-  <script src="youtube.js"></script>
-
-  <!-- Länka till en separat vimeo.js för Vimeo-spelaren -->
-  <script src="vimeo.js"></script>
+  <!-- Länka till Plyr JS -->
+  <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>
+  
+  <!-- Din externa JS-fil -->
+  <script src="players.js"></script>
 </body>
 </html>
