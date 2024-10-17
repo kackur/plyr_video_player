@@ -1,72 +1,50 @@
-/* style.css */
-body {
-  font-family: 'Inter', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background-color: #f5f5f5;
-  padding: 20px;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Initiera YouTube-spelaren med Plyr
+  const youtubePlayer = new Plyr('#youtube-player', {
+    controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'], // Plyrs kontroller
+    disableContextMenu: true, // Inaktivera högerklicksmenyer
+    fullscreen: {
+      enabled: true, // Tillåt fullskärm
+    },
+    loop: { active: true }, // Aktivera loop
+    muted: true // Starta mutad
+  });
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
+  // Lägg till allow-attribut till YouTube iframe
+  const youtubeIframe = document.querySelector('#youtube-player iframe');
+  youtubeIframe.setAttribute('allow', 'autoplay; picture-in-picture');
 
-.card {
-  background-color: #e0e0e0;
-  border-radius: 20px;
-  padding: 20px;
-  width: 100%;
-  max-width: 800px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
+  // Initiera Vimeo-spelaren med Plyr
+  const vimeoPlayer = new Plyr('#vimeo-player', {
+    controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'], // Plyrs kontroller
+    disableContextMenu: true, // Inaktivera högerklicksmenyer
+    fullscreen: {
+      enabled: true, // Tillåt fullskärm
+    },
+    loop: { active: true }, // Aktivera loop
+    muted: true // Starta mutad
+  });
 
-h1 {
-  margin: 0;
-  font-size: 26px;
-  font-weight: 600;
-  text-align: left;
-  display: inline-block;
-}
+  // Lägg till allow-attribut till Vimeo iframe
+  const vimeoIframe = document.querySelector('#vimeo-player iframe');
+  vimeoIframe.setAttribute('allow', 'autoplay; picture-in-picture');
 
-.time-chip {
-  background-color: black;
-  color: white;
-  border-radius: 15px;
-  padding: 5px 10px;
-  font-size: 14px;
-  margin-left: 20px;
-  vertical-align: middle;
-  display: inline-block;
-}
+  // Funktion för att pausa den andra spelaren
+  function pauseOtherPlayer(currentPlayer) {
+    if (currentPlayer === youtubePlayer) {
+      vimeoPlayer.pause();
+    } else if (currentPlayer === vimeoPlayer) {
+      youtubePlayer.pause();
+    }
+  }
 
-p {
-  font-size: 16px;
-  text-align: left;
-  margin: 10px 0;
-}
+  // Lyssna på play-händelsen för YouTube-spelaren
+  youtubePlayer.on('play', () => {
+    pauseOtherPlayer(youtubePlayer);
+  });
 
-/* Anpassa bakgrundsfärgen för Plyr-kontroller */
-.plyr__controls {
-  background-color: #50D571;
-}
-
-.plyr__control {
-  color: white;
-}
-
-/* Gör hörnen på spelarna rundade */
-.plyr__video-embed {
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.plyr__video-embed iframe {
-  border-radius: 4px;
-}
+  // Lyssna på play-händelsen för Vimeo-spelaren
+  vimeoPlayer.on('play', () => {
+    pauseOtherPlayer(vimeoPlayer);
+  });
+});
